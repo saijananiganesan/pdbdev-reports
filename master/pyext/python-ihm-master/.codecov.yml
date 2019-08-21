@@ -1,3 +1,0 @@
-ignore:
-  - test
-  - **/_compat_collections.py
