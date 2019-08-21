@@ -1,0 +1,15 @@
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+body {
+      height: 297mm;
+      width: 210mm;
+      margin-left: auto;
+      margin-right: auto;
+    }
+.center {
+ text-align: center
+}
+

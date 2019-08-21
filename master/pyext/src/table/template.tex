@@ -1,0 +1,100 @@
+\documentclass[12pt,a4paper]{article} 
+\usepackage{tabularx}
+\usepackage{caption}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage[margin=0.3in]{geometry}
+\fontfamily{phv}\fontseries{mc}\selectfont
+\begin{document}
+
+%####################
+%#add title page
+%####################
+\begin{center} 	
+	\vspace*{5px}
+	\begin{figure}
+	\centering
+        	\includegraphics[totalheight=1.2cm]{images/PDB.png}\\
+   	 \label{fig:verticalcell}
+	\end{figure}
+	\textbf{ \huge Full wwPDB Integrative Structure Validation Report } \\
+	\vspace*{25px}
+	\large {\VAR{date} PDT} \\
+	\vspace*{40px}
+\end{center}
+\begin{longtable}{ p{.28\textwidth} | p{.48\textwidth} }
+	{\textbf{PDB ID}} & $\VAR{ID}$\\
+	\hline
+	{\textbf{Molecule Name}} & \VAR{Molecule}\\
+        \hline
+	{\textbf{Title}} & \VAR{title}\\
+	\hline
+	{\textbf{Authors}} & \VAR{authors}\\
+\end{longtable}
+\pagebreak
+%####################
+%#end title page
+%####################
+%##############################################################################################
+
+%####################
+%#add quality page
+%####################
+
+\textbf{ \Large 1. Overall quality at a glance}  \\
+\vspace{10px}
+%####################
+%#end quality page
+%####################
+
+%##############################################################################################
+%####################
+%#add composition page
+%####################
+
+
+\textbf{ \Large 2. Entry composition}  \\
+\vspace{10px}
+
+\large{There are \VAR{number_of_molecules} unique types of molecules in this entry. The entry contains \VAR{number_of_atoms} number of residues.} \\
+
+\begin{longtable}{ p{.28\textwidth} | p{.48\textwidth} }
+
+           \hline
+   \BLOCK{ for entry in input_information | list}
+	 \BLOCK{ for vals in entry | list}
+    \textit{\VAR{vals}} 
+  \BLOCK{ endfor }
+  \BLOCK{ endfor }
+
+  \hline
+
+\end{longtable}
+
+
+\pagebreak
+
+
+%####################
+%#end composition page
+%####################
+
+
+\textbf{\Large 3. Data, software and other composition}  \\
+
+
+\textbf{\Large 4. Model validation}  \\
+
+\textbf{\large 4.1. Data validation}  \\
+
+\textbf{\large 4.2. Validation of atomic regions}  \\
+
+\textbf{\large 4.3. Validation of model fit to input infomation}  \\
+
+\textbf{\large 4.4. Model uncertainity}  \\
+
+
+\pagebreak
+
+  
+\end{document}
