@@ -34,7 +34,7 @@ _citation.country
 _citation.journal_id_ISSN
 _citation.journal_id_CSD
 _citation.book_publisher
-1 "Rev7 dimerization is important for assembly and function of the Rev1/Polζ translesion synthesis complex" "Proc. Natl. Acad. Sci. U. S. A." ? ? ? 2018 ? 10.1073/pnas.1801149115 ? ? ? ? ?
+1 "Rev7 dimerization is important for assembly and function of the Rev1/Pol translesion synthesis complex" "Proc. Natl. Acad. Sci. U. S. A." ? ? ? 2018 ? 10.1073/pnas.1801149115 ? ? ? ? ?
 #
 loop_
 _citation_author.citation_id
