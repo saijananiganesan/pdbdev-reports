@@ -1,0 +1,363 @@
+ <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>PDB-Dev Validation Report Landing Page</title>
+    <!-- add bootstrap css file -->
+    
+
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
+     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    
+
+
+    <style>
+        @charset "UTF-8";
+            /* CSS Document */
+            a {
+            color: #333399;
+            font-weight: 450;
+            }
+            a:hover {
+            color:#5353c6;
+            }
+            .clearfloat { /* this class can be placed on a <br /> or empty div as the final element following the last floated div (within the #container) if the #footer is removed or taken out of the #container */
+            clear:both;
+            height:0;
+            font-size: 1px;
+            line-height: 0px;
+            }
+            body {
+            background-color: #669966
+            margin: 0;
+            padding: 0;
+            }
+            .home-header {
+            display: show;
+            }
+            .dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu a::after {
+  transform: rotate(-90deg);
+  position: absolute;
+  right: 6px;
+  top: .8em;
+}
+
+.dropdown-submenu .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-left: .1rem;
+  margin-right: .1rem;
+}
+
+    </style>
+
+
+</head>
+
+<body style="background-color: #669966; ">
+    <!-- header -->
+    <!-- header -->
+    <div class="container-fluid">
+        <div class="card" style="border: none; margin-bottom: 0px; margin-right: 10px; margin-left: 30px; ">
+            <div class="float-left"><b><span id="siteid"></span></b></div>
+            <div class="card-body" style="padding: 0px 0px;background-color: rgba(102,153,102, 0.5); ">
+                <div class="row">
+                    <div class=" col-sm-9" style="margin-left: 0px;">
+                        <a href="https://pdb-dev.wwpdb.org/">
+                            <img src="../../static/webimages/logon.png" class="float-left" alt="PDBDEV.org" height="100" width="110" style="margin-top: 10px; margin-bottom: 10px" />
+                            <p>
+                                <h1 style="margin-left: 0px; color: #003366;">PDB-Dev</h1>
+                                <h5 class="float-left" style="color: #003366;">Prototype Archiving System for Integrative Structures</h5>
+                            </p>
+                        </a>
+                    </div>
+                    <div class="col-sm-3 d-flex align-items-end" style="margin-top: 0px;">
+                        <h5 class="home-header ml-auto" style="margin-right:27px; color:#003366"><b><small>Released Entries: 36</small></b></h5>
+                    </div>
+                </div>
+            </div>
+            <!--end panel body-->
+            <!-- navbar -->
+
+            <nav class="navbar navbar-expand-xl navbar-dark">
+                <div class="dropdown">
+                    <a class="navbar-brand" href="main.html">
+                        <h5>Validation Report for PDBDEV_00000030</h5>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                
+
+                <div class="dropdown">
+                    <a class="navbar-brand" href="{{ url_for('home') }}">
+                        <h5>All reports</h5>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+
+            </nav>
+                
+
+            <!-- navbar -->
+            <nav class="navbar navbar-expand-xl navbar-dark">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="nav navbar-nav mr-auto">
+                        <li class="nav-item mr-4 dropdown">
+                            <a class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" href="main.html"><span class="overview">Overview</span>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="main.html#qual">Overall quality</a>
+                            </div>
+                        </li>
+                        <li class="nav-item mr-4 dropdown">
+                            <a class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" href="model_composition.html"><span class="overview">Model details</span>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="model_composition.html#ensemble">Ensemble information</a>
+                                <a class="dropdown-item" href="model_composition.html#summary">Summary</a>
+                                <a class="dropdown-item" href="model_composition.html#entry">Entry composition</a>
+                                <a class="dropdown-item" href="model_composition.html#data">Datasets used</a>
+                                <a class="dropdown-item" href="model_composition.html#representation">Representation</a>
+                                <a class="dropdown-item" href="model_composition.html#methods">Methods and software</a>
+                            </div>
+                        </li>
+                           <li class="nav-item mr-4 dropdown">
+                            <a class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" href="data_quality.html"><span class="overview">Data quality</span>
+                            </a>
+                            <div class="dropdown-menu">
+
+                            <script>
+                                if (['CX-MS DATA', 'DE NOVO MODEL'].includes('SAS DATA') >= 1) {
+                                var ex='<a class=dropdown-item dropdown-toggle type=button href=data_quality.html#first>SAS</a><ul class=dropdown-submenu><li><a class=dropdown-item href=data_quality.html#firstI>Scattering profiles</a></li><li><a class=dropdown-item href=data_quality.html#firstE>Experimental estimates</a></li><li><a class=dropdown-item href=data_quality.html#firstF>Flexibility analysis </a></li><li><a class=dropdown-item href=data_quality.html#firstP>P(r) analysis </a></li><li><a class=dropdown-item href=data_quality.html#firstG>Guinier analysis </a></li></ul>'
+                                document.write(ex);}
+
+                            else {
+
+                                var ex='<a class=dropdown-item href=data_quality.html#first>Data</a>'
+                                document.write(ex);
+                            }
+                        </script>
+                        </div>
+                        </li>           
+
+			<li class="nav-item mr-4 dropdown">
+                            <a class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" href="model_quality.html"><span class="overview">Model quality</span>
+                            </a>
+                            <div class="dropdown-menu">
+                            <script>
+                            if (0>0){
+                                var ex='<a class=dropdown-item href=model_quality.html#ex>Excluded volume</a>';
+                                document.write(ex);}
+                            if (0<1){
+                                var ex='<a class=dropdown-item href=model_quality.html#geometry>Standard geometry</a> <a class=dropdown-item href=model_quality.html#contacts>Close contacts</a> <a class=dropdown-item href=model_quality.html#torsion>Torsion angles</a> <a class=dropdown-item href=model_quality.html#outliers>Ramachandran outliers</a>';
+                                document.write(ex);}
+                            </script>
+                            </div>
+                        </li>
+                         <li class="nav-item mr-4 dropdown">
+                            <a class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" href="formodeling.html"><span class="overview">Fit to data used</span>
+                            </a>
+                            <div class="dropdown-menu">
+                            <script>
+                                if (['CX-MS DATA', 'DE NOVO MODEL'].includes('SAS DATA') >= 1) {
+                                var ex='<a class=dropdown-item dropdown-toggle type=button href=formodeling.html#first>SAS</a>'
+                                document.write(ex);}
+                            else {
+                                var ex='<a class=dropdown-item href=formodeling.html#first>Data</a>'
+                                document.write(ex);
+                                }  
+                            </script>                          
+                            </div>
+                        </li>
+                        <li class="nav-item mr-4 dropdown">
+                            <a class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" href="notformodeling.html"><span class="overview">Fit to data not used</span>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="notformodeling.html#data">Data</a>
+                            </div>
+                        </li>
+                        <li class="nav-item mr-4 dropdown">
+                            <a class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" href="uncertainty.html"><span class="overview">Uncertainty</span>
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="uncertainty.html#data">Data</a>
+                                <a class="dropdown-item" href="uncertainty.html#model">Model</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- start overall card body for front page -->
+            <!-- scripts -->
+            <script>
+            function Write_Table(list_to_write) {
+                var mytable = "<div class='bs-example' class='text-center'> <table class='table table-bordered' style='border-color':#003366;> <thead> <tr>";
+                for (var i = 0; i < list_to_write[0].length; i++) {
+                    mytable += "<th align='center' class='text-center'>" + list_to_write[0][i] + "</th>";
+                }
+                mytable += "</tr></thead><tr>";
+
+                for (var j = 1; j < list_to_write.length; j++) {
+                    for (var i = 0; i < list_to_write[j].length; i++) {
+                        mytable += "<td><div>" + list_to_write[j][i] + "</div></td>";
+                    }
+                    mytable += "</tr><tr>";
+
+                }
+                mytable += "</tr></table></div>";
+                document.write(mytable);
+            }
+            </script>
+            <!-- scripts -->
+            <div class="card-body border-success" style="border-color: solid black;">
+                <!-- start overall card body for front page -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="card-header" style="background-color: #FFF;">
+                            <h4 align="center"><u>Model quality</u></h4>
+                            <script>
+                            var sphere = 0
+                            if (sphere > 0) {
+                                var ex = "<h5 class= ex2 align= left>Excluded volume satisfaction</h5>";
+                                ex += "<i> Excluded volume satisfaction for the models in the entry are listed below. </i>";
+                                document.write(ex);
+                                var space = '<p class="ex2"> </p>';
+                                document.write(space);
+                                Write_Table(list_to_write = )
+                                document.write(space);
+                            }
+                            </script>
+                            <script>
+                            if (0< 1) {
+                                var intro = "<h5 class= ex2 align= center><u><a name='geometry'>Standard geometry</a></u></h5>";
+                                intro += "<i> There are " + 4278 + " bond outliers in this entry. </i>";
+                                document.write(intro);
+                                var space = '<p class="ex2"> </p>';
+                                document.write(space);
+                                if ([['Bond type', 'Observed distance (&#8491)', 'Ideal distance (&#8491)', 'Number of outliers'], ['NZ--HZ3', '1.035', '0.89', '194'], ['NZ--HZ1', '1.036', '0.89', '194'], ['NZ--HZ2', '1.035', '0.89', '194'], ['NH2--HH21', '0.997', '0.86', '103'], ['NH2--HH22', '1.001', '0.86', '103'], ['NH1--HH11', '0.999', '0.86', '103'], ['NH1--HH12', '0.998', '0.86', '103'], ['OH--HH', '0.959', '0.84', '92'], ['NE--HE', '0.981', '0.86', '103'], ['OG--HG', '0.961', '0.84', '183'], ['ND2--HD21', '0.977', '0.86', '133'], ['OG1--HG1', '0.961', '0.84', '138'], ['NE1--HE1', '0.979', '0.86', '51'], ['NE2--HE2', '0.98', '0.86', '25'], ['NE2--HE21', '0.978', '0.86', '114'], ['N--H', '0.974', '0.86', '2156'], ['ND2--HD22', '0.976', '0.86', '133'], ['NE2--HE22', '0.978', '0.86', '114'], ['ND1--HD1', '0.981', '0.86', '17'], ['SG--HG', '1.326', '1.2', '5']].length > 0) {
+                                    Write_Table(list_to_write = [['Bond type', 'Observed distance (&#8491)', 'Ideal distance (&#8491)', 'Number of outliers'], ['NZ--HZ3', '1.035', '0.89', '194'], ['NZ--HZ1', '1.036', '0.89', '194'], ['NZ--HZ2', '1.035', '0.89', '194'], ['NH2--HH21', '0.997', '0.86', '103'], ['NH2--HH22', '1.001', '0.86', '103'], ['NH1--HH11', '0.999', '0.86', '103'], ['NH1--HH12', '0.998', '0.86', '103'], ['OH--HH', '0.959', '0.84', '92'], ['NE--HE', '0.981', '0.86', '103'], ['OG--HG', '0.961', '0.84', '183'], ['ND2--HD21', '0.977', '0.86', '133'], ['OG1--HG1', '0.961', '0.84', '138'], ['NE1--HE1', '0.979', '0.86', '51'], ['NE2--HE2', '0.98', '0.86', '25'], ['NE2--HE21', '0.978', '0.86', '114'], ['N--H', '0.974', '0.86', '2156'], ['ND2--HD22', '0.976', '0.86', '133'], ['NE2--HE22', '0.978', '0.86', '114'], ['ND1--HD1', '0.981', '0.86', '17'], ['SG--HG', '1.326', '1.2', '5']])
+
+                                    document.write(space);
+                                }
+                                var intro2 = "<i> There are " + 0 + " angle outliers in this entry.  </i>";
+                                document.write(intro2);
+                                document.write(space);
+                                if ([].length > 0) {
+                                    Write_Table(list_to_write = [])
+                                    document.write(space);
+                                }
+
+                                var docx = "<h5 class= ex2 align= center><u><a name='contacts'>Too-close contacts</a></u></h5>";
+                                docx += "<p align='justify'><i> The following all-atom clashscore is based on a MolProbity analysis. All-atom clashscore is defined as the number of clashes found per 1000 atoms (including hydrogen atoms). The table below contains clashscores for all the models in this entry. </i></p>";
+                                document.write(docx);
+                                document.write(space);
+                                if ([['Model ID', 'Clash score', 'Number of clashes'], ['Model 1', '9.38', '331']].length > 0) {
+                                    Write_Table(list_to_write = [['Model ID', 'Clash score', 'Number of clashes'], ['Model 1', '9.38', '331']])
+                                    document.write(space);
+                                }
+
+
+                                var text1 = "<i> All " + 331 + " close contacts within the same asymmetric unit are listed below, sorted by their clash magnitude.</i>";
+                                document.write(text1);
+                                document.write(space);
+                                if ({'Model ID': ['1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1'], 'Atom-1': ['I:620:LYS:C', 'I:620:LYS:HG3', 'I:620:LYS:CG', 'I:617:HIS:CB', 'I:617:HIS:HB3', 'I:618:SER:C', 'I:620:LYS:O', 'I:619:THR:N', 'I:620:LYS:CG', 'I:620:LYS:O', 'I:620:LYS:C', 'I:617:HIS:C', 'I:619:THR:N', 'I:569:GLU:HG3', 'I:620:LYS:CB', 'I:618:SER:C', 'I:618:SER:OG', 'I:620:LYS:HG2', 'Z:233:VAL:HG13', 'I:618:SER:N', 'I:620:LYS:CA', 'I:617:HIS:CA', 'I:619:THR:H', 'I:617:HIS:CB', 'I:617:HIS:HB3', 'I:617:HIS:CA', 'I:620:LYS:HG3', 'I:618:SER:N', 'I:619:THR:H', 'Z:244:VAL:HB', 'B:324:LEU:HB3', 'F:277:GLU:HB3', 'I:620:LYS:HE3', 'I:617:HIS:C', 'I:617:HIS:HB2', 'I:620:LYS:CA', 'I:620:LYS:HG2', 'E:415:TRP:HB2', 'C:276:LEU:HB3', 'B:297:ASP:HB3', 'I:619:THR:N', 'H:441:GLU:HA', 'E:286:GLN:HA', 'B:157:LYS:HD3', 'E:345:GLU:HB3', 'B:398:THR:HB', 'E:212:LEU:HD23', 'G:456:THR:HG21', 'I:619:THR:N', 'G:456:THR:HG21', 'E:428:ASP:HA', 'I:617:HIS:CB', 'B:181:LEU:HD13', 'G:456:THR:CG2', 'I:620:LYS:CB', 'E:333:THR:HB', 'I:619:THR:N', 'C:413:ILE:HG12', 'F:144:ASN:HA', 'B:177:GLU:O', 'I:617:HIS:NE2', 'K:71:TYR:HB3', 'I:617:HIS:CE1', 'B:285:ARG:HB3', 'I:605:ASP:HA', 'C:282:ARG:HG2', 'F:286:ALA:HB2', 'A:70:MET:HE1', 'I:617:HIS:HB3', 'I:620:LYS:HG2', 'E:186:THR:HA', 'B:156:GLN:HB3', 'F:330:PHE:HB3', 'E:121:ARG:HB2', 'I:620:LYS:CD', 'B:169:VAL:HA', 'F:218:THR:HB', 'I:617:HIS:CB', 'D:69:ARG:O', 'E:442:PRO:HA', 'E:191:ILE:HB', 'A:109:ILE:O', 'I:620:LYS:CG', 'B:428:ASP:HA', 'F:369:HIS:O', 'E:330:SER:HA', 'E:355:HIS:HB3', 'I:577:SER:HB2', 'I:617:HIS:HB2', 'E:403:MET:HG3', 'Z:234:PRO:HD2', 'C:275:GLU:HG2', 'H:440:LYS:HG3', 'F:341:TRP:HB3', 'C:92:LEU:HD12', 'H:437:LYS:HB2', 'F:284:SER:HB2', 'G:460:SER:HB3', 'I:617:HIS:CB', 'E:175:GLU:O', 'B:168:VAL:HG13', 'I:620:LYS:O', 'E:324:LEU:HD23', 'I:569:GLU:HG3', 'F:382:LYS:HG3', 'B:345:GLU:HB3', 'F:75:GLN:HG3', 'B:121:ARG:HB3', 'C:348:PHE:HB2', 'E:145:PHE:HE1', 'E:291:ASP:HB3', 'E:445:ARG:N', 'E:185:GLU:O', 'I:620:LYS:HD2', 'D:56:SER:O', 'B:235:VAL:HG11', 'A:184:CYS:HB3', 'C:102:PRO:HG3', 'Z:233:VAL:CG1', 'B:243:GLU:O', 'D:184:CYS:HB3', 'E:425:SER:HB3', 'I:620:LYS:HG3', 'C:351:ASN:HB3', 'D:70:MET:HG3', 'B:347:TRP:HB3', 'B:283:GLN:HG3', 'I:620:LYS:CG', 'E:145:PHE:CE1', 'G:456:THR:HG21', 'F:360:TRP:HB3', 'D:191:GLU:HG2', 'E:194:ASN:HA', 'D:166:MET:HE1', 'E:285:ARG:HB2', 'E:297:ASP:HB3', 'D:181:ARG:HD3', 'B:243:GLU:HG2', 'D:88:LEU:HG', 'F:209:GLU:HB2', 'B:310:THR:HB', 'B:441:ASN:O', 'C:282:ARG:HD3', 'G:456:THR:HG23', 'E:284:ASN:O', 'B:161:GLN:HB2', 'B:403:MET:HG3', 'E:180:GLN:O', 'B:242:GLU:HG2', 'F:276:LEU:HD23', 'E:199:ARG:HD3', 'E:248:GLY:HA3', 'E:147:TYR:O', 'F:330:PHE:HB3', 'E:352:VAL:HB', 'H:469:VAL:HB', 'C:278:ASP:OD2', 'C:224:LEU:HG', 'H:459:ARG:O', 'H:467:LYS:HE2', 'B:248:GLY:HA3', 'C:220:PHE:HE2', 'C:122:TYR:O', 'C:40:ARG:N', 'Y:221:LEU:N', 'D:137:ARG:HG3', 'E:207:SER:O', 'E:441:ASN:O', 'G:456:THR:HG23', 'C:331:THR:HB', 'F:40:ARG:N', 'G:459:ARG:H', 'E:159:GLN:O', 'B:332:LEU:HA', 'B:113:GLN:O', 'E:256:LEU:HD22', 'E:359:PHE:HE1', 'C:321:PHE:HA', 'E:283:GLN:HG3', 'F:395:TRP:HD1', 'G:469:VAL:HB', 'F:339:SER:HA', 'A:172:ASP:O', 'C:310:GLY:O', 'A:180:CYS:HB3', 'B:160:LYS:HG3', 'A:196:ASP:HA', 'D:213:LEU:N', 'B:181:LEU:CD1', 'H:458:ARG:HB2', 'E:466:VAL:HG22', 'E:467:TRP:CD1', 'F:238:LYS:HA', 'C:242:GLY:HA3', 'F:321:PHE:HZ', 'I:620:LYS:HG3', 'A:188:LEU:HD23', 'C:52:ALA:HB2', 'C:294:GLY:O', 'D:138:ILE:HG12', 'A:131:SER:HB3', 'C:232:LYS:HB3', 'F:82:GLU:O', 'F:217:TRP:CZ3', 'E:345:GLU:HG3', 'C:282:ARG:HA', 'C:175:THR:HG23', 'F:72:ILE:O', 'D:93:PHE:HD1', 'F:257:GLU:O', 'B:241:CYS:HA', 'B:407:THR:HG22', 'G:456:THR:OG1', 'C:67:GLN:HA', 'E:413:ASP:HB2', 'E:445:ARG:H', 'Y:229:VAL:HG13', 'F:370:LEU:HA', 'A:199:ASP:HA', 'C:232:LYS:HB3', 'A:55:CYS:O', 'E:367:LYS:HB3', 'H:433:LEU:HD13', 'B:112:LEU:O', 'B:235:VAL:HG22', 'K:60:ARG:HA', 'D:169:LEU:HG', 'E:415:TRP:HH2', 'C:280:ASN:HB3', 'D:167:LYS:HE2', 'I:617:HIS:O', 'B:282:ILE:HG23', 'B:368:TYR:HB2', 'B:345:GLU:HA', 'B:241:CYS:SG', 'E:164:ASP:O', 'I:620:LYS:O', 'F:312:ALA:HA', 'A:213:LEU:N', 'D:163:LEU:HD12', 'G:456:THR:HG21', 'B:279:TRP:HB3', 'E:176:LEU:HD23', 'B:240:GLU:OE2', 'B:327:ASP:HA', 'C:276:LEU:O', 'B:143:SER:O', 'B:248:GLY:HA3', 'G:462:SER:HA', 'B:285:ARG:HD3', 'B:390:LEU:HB3', 'F:179:CYS:SG', 'E:99:ASP:HA', 'Y:230:PRO:HA', 'B:465:VAL:O', 'D:171:VAL:O', 'C:63:ASP:O', 'E:310:THR:HG23', 'Y:222:PRO:HG3', 'K:65:PRO:HA', 'D:219:GLN:HB3', 'D:172:ASP:O', 'B:172:TYR:CD1', 'A:177:ILE:HG23', 'B:99:ASP:OD1', 'I:618:SER:N', 'E:202:LEU:HD21', 'C:174:ILE:HD12', 'B:234:PRO:HA', 'F:179:CYS:HB3', 'D:186:ARG:HG2', 'F:294:GLY:O', 'A:142:LYS:HA', 'E:310:THR:HB', 'F:220:PHE:HE2', 'B:99:ASP:HA', 'B:300:LYS:HB2', 'I:620:LYS:HG3', 'F:66:LEU:O', 'Y:235:GLY:O', 'B:295:LYS:O', 'E:381:ASN:HD21', 'B:272:MET:HA', 'B:160:LYS:CB', 'E:143:SER:O', 'Z:244:VAL:HB', 'A:66:SER:HB2', 'E:358:GLY:O', 'B:318:LEU:HD12', 'E:235:VAL:HG22', 'E:234:PRO:HA', 'C:57:THR:HA', 'B:424:CYS:HB3', 'B:160:LYS:HB2', 'E:147:TYR:HD1', 'B:172:TYR:CE2', 'Y:229:VAL:HA', 'F:413:ILE:HG13', 'C:385:THR:HB', 'I:579:TYR:HB2', 'C:321:PHE:HE1', 'F:192:LEU:HG', 'Z:245:PRO:HB2', 'E:235:VAL:HG11', 'B:339:GLU:HG2', 'B:159:GLN:HB2', 'F:276:LEU:O', 'B:403:MET:HE2', 'C:238:LYS:HA', 'B:191:ILE:N', 'A:92:LEU:HA', 'E:245:ILE:HG13', 'C:88:LYS:HE2', 'D:109:ILE:HA', 'B:172:TYR:HE2', 'B:287:ASP:HA', 'D:92:LEU:HA', 'B:485:ARG:HA', 'B:247:LYS:HD3', 'E:373:ASN:HA', 'D:204:LEU:HA', 'D:200:GLN:HB2', 'F:304:TYR:HE2', 'C:178:ASP:H', 'F:360:TRP:CE3', 'C:304:TYR:HE2', 'C:156:GLN:O', 'E:485:ARG:HA', 'B:304:GLY:HA3', 'E:382:ALA:HB2', 'C:197:PRO:HD2'], 'Atom-2': ['K:53:ARG:HD3', 'K:53:ARG:CD', 'K:53:ARG:HD2', 'K:53:ARG:HH21', 'K:53:ARG:NH2', 'K:53:ARG:HH12', 'K:53:ARG:HD3', 'K:53:ARG:HH12', 'K:53:ARG:CD', 'K:53:ARG:CD', 'K:53:ARG:CD', 'K:53:ARG:NH2', 'K:53:ARG:NH1', 'Y:237:PHE:CE1', 'K:53:ARG:HD2', 'K:53:ARG:NH1', 'Y:243:LYS:NZ', 'K:53:ARG:HD2', 'Z:234:PRO:HD3', 'K:53:ARG:NH2', 'K:53:ARG:HD3', 'K:53:ARG:NH2', 'K:53:ARG:HH22', 'K:53:ARG:NH2', 'K:53:ARG:CZ', 'K:53:ARG:HH21', 'K:53:ARG:CG', 'K:53:ARG:HH22', 'K:53:ARG:NH2', 'Z:245:PRO:HD3', 'B:329:ILE:HD11', 'F:407:LYS:HB2', 'K:53:ARG:O', 'K:53:ARG:CZ', 'K:53:ARG:HE', 'K:53:ARG:CD', 'K:53:ARG:CD', 'E:436:ARG:HA', 'C:405:MET:HE2', 'B:298:PRO:HD3', 'K:53:ARG:CZ', 'H:451:SER:HA', 'E:479:LYS:HG2', 'Z:231:ASP:HB2', 'E:479:LYS:HB2', 'B:439:ALA:HB2', 'F:150:LEU:HD13', 'I:579:TYR:C', 'K:53:ARG:HH22', 'I:579:TYR:N', 'E:463:ASP:HB2', 'K:53:ARG:CZ', 'E:189:SER:HB3', 'I:579:TYR:C', 'K:53:ARG:CD', 'E:360:THR:HA', 'K:53:ARG:NH2', 'C:414:PRO:HD2', 'F:147:ILE:HD12', 'B:181:LEU:HG', 'Y:236:ASN:HA', 'K:74:ARG:HB2', 'Y:236:ASN:HA', 'B:480:MET:HB3', 'I:611:ALA:HB2', 'D:73:LEU:HD22', 'F:312:ALA:HB3', 'C:52:ALA:HB3', 'K:53:ARG:HH21', 'K:53:ARG:NE', 'E:190:ASN:HB2', 'Z:233:VAL:HG21', 'F:364:LYS:HB3', 'E:122:PRO:HD3', 'K:53:ARG:HA', 'Z:223:LEU:HD12', 'F:412:ILE:HG13', 'K:53:ARG:HE', 'D:73:LEU:HG', 'E:465:VAL:HG13', 'E:192:PRO:HD3', 'A:113:LEU:HG', 'K:53:ARG:NE', 'B:463:ASP:HB2', 'F:393:ILE:HA', 'E:361:VAL:HB', 'E:376:ARG:HG3', 'Y:245:PRO:HB3', 'K:53:ARG:NE', 'E:435:ASN:HB2', 'Z:237:PHE:HB3', 'C:285:THR:HG23', 'H:441:GLU:OE1', 'F:354:GLU:HA', 'E:214:SER:HB3', 'H:479:THR:HG21', 'F:312:ALA:HB2', 'Y:247:GLU:HG3', 'K:53:ARG:NE', 'E:176:LEU:HG', 'B:169:VAL:HG23', 'K:53:ARG:NH1', 'E:329:ILE:HG12', 'Y:237:PHE:HE1', 'F:402:TRP:HE1', 'B:479:LYS:HB2', 'F:79:LYS:HE3', 'B:122:PRO:HD3', 'C:352:CYS:SG', 'F:80:THR:HA', 'E:294:ARG:HH21', 'E:464:GLY:HA2', 'E:189:SER:HB2', 'K:53:ARG:HA', 'D:59:ASP:HB2', 'C:254:LEU:HA', 'B:223:CYS:HA', 'E:203:GLU:HB2', 'Z:234:PRO:HD3', 'B:247:LYS:HG3', 'E:223:CYS:HA', 'E:434:TYR:CE2', 'K:53:ARG:HA', 'C:354:GLU:HB2', 'F:48:THR:HG22', 'K:51:LYS:HD3', 'B:323:TRP:HE3', 'K:53:ARG:HA', 'F:80:THR:HA', 'I:579:TYR:CA', 'F:362:MET:HE3', 'Z:234:PRO:HB3', 'E:197:VAL:HG12', 'E:212:LEU:HD22', 'E:480:MET:HB3', 'E:298:PRO:HD3', 'E:289:SER:OG', 'B:246:ARG:NH2', 'F:69:LEU:HD23', 'F:217:TRP:HB2', 'B:313:LYS:HB2', 'B:465:VAL:HA', 'D:73:LEU:HD13', 'I:579:TYR:C', 'E:321:GLU:HA', 'Z:229:VAL:HB', 'B:435:ASN:HB2', 'E:184:ASP:HB2', 'B:488:PHE:HE2', 'F:405:MET:HG3', 'E:203:GLU:OE1', 'F:236:GLN:HG2', 'E:150:LEU:HG', 'F:364:LYS:CB', 'E:378:THR:O', 'H:477:GLU:HB3', 'C:282:ARG:HB2', 'C:251:GLU:HG2', 'H:485:SER:HA', 'H:469:VAL:HG22', 'C:236:GLN:HG2', 'C:412:ILE:HG23', 'C:126:ILE:HG12', 'C:44:TYR:HH', 'Y:222:PRO:HD2', 'D:138:ILE:HG13', 'E:210:GLN:HG3', 'E:465:VAL:HA', 'I:580:SER:N', 'C:367:ALA:HB2', 'F:44:TYR:HH', 'G:483:VAL:HG11', 'E:163:LYS:HB2', 'B:335:MET:HE2', 'B:117:LEU:HG', 'F:205:LEU:HD12', 'E:370:ILE:HD11', 'D:57:ASP:HB2', 'E:323:TRP:HE3', 'F:398:TRP:HB2', 'G:477:GLU:HB3', 'F:345:ASN:HB2', 'A:176:LYS:HG2', 'D:50:SER:HA', 'A:184:CYS:SG', 'Z:233:VAL:HG23', 'F:102:PRO:HG3', 'D:214:PRO:HD3', 'E:189:SER:HB3', 'H:483:VAL:HG11', 'E:476:SER:HA', 'E:470:TRP:HB2', 'F:256:ASN:HB2', 'C:252:PHE:HA', 'F:367:ALA:HA', 'K:53:ARG:HD2', 'A:190:ARG:HD2', 'C:55:LEU:HB3', 'C:300:TYR:HA', 'D:141:LEU:HB2', 'Z:224:ILE:HG23', 'C:236:GLN:HB2', 'F:86:LEU:HG', 'F:273:ARG:HD2', 'E:351:LYS:HG2', 'E:90:PRO:HG2', 'C:194:PHE:HB3', 'F:76:VAL:HG23', 'D:97:LYS:HE3', 'F:261:LEU:HG', 'B:244:ILE:HD12', 'B:431:GLY:HA3', 'I:578:SER:O', 'C:70:GLU:HG2', 'E:423:GLN:HE21', 'E:464:GLY:HA2', 'Y:232:LEU:HG', 'F:393:ILE:HG23', 'A:202:LYS:HE3', 'C:236:GLN:CB', 'F:309:GLY:HA3', 'E:412:ASN:HD21', 'H:442:LEU:HD22', 'B:116:LEU:HG', 'C:244:LEU:HG', 'K:60:ARG:NE', 'D:173:ILE:HD11', 'E:422:LYS:HE3', 'C:282:ARG:HG3', 'E:456:MET:HE2', 'K:53:ARG:CZ', 'B:329:ILE:HD13', 'B:405:PHE:HB2', 'B:350:ASP:O', 'B:280:THR:HG23', 'E:167:ASN:HB3', 'K:53:ARG:CG', 'F:398:TRP:CD1', 'A:214:PRO:HD3', 'E:205:LEU:HD21', 'I:578:SER:C', 'B:483:LYS:HB3', 'E:179:HIS:HB2', 'B:242:GLU:HB3', 'B:330:SER:OG', 'C:283:THR:HA', 'B:146:GLN:HG3', 'C:236:GLN:CG', 'G:483:VAL:O', 'B:446:TYR:HD2', 'B:394:ASN:HB3', 'F:218:THR:HG23', 'E:100:PRO:HD3', 'Y:233:VAL:HB', 'B:476:SER:HA', 'D:175:ILE:HG13', 'C:67:GLN:HB2', 'E:318:LEU:HG', 'Y:230:PRO:HD3', 'K:75:PRO:HB3', 'Y:220:HIS:HB3', 'D:176:LYS:HG2', 'Z:224:ILE:HB', 'B:219:GLN:HG2', 'B:101:ASP:HB3', 'K:53:ARG:CZ', 'F:139:ILE:HB', 'C:193:TYR:HE2', 'C:242:GLY:O', 'F:208:CYS:HB3', 'D:187:ALA:N', 'F:300:TYR:HA', 'A:145:VAL:HG12', 'E:313:LYS:HG3', 'F:412:ILE:HG23', 'B:100:PRO:HD3', 'B:327:ASP:OD1', 'K:53:ARG:CB', 'F:70:GLU:HG2', 'Y:238:LYS:HG2', 'B:298:PRO:HD2', 'E:384:MET:HB3', 'B:277:GLY:CA', 'Z:233:VAL:HA', 'E:146:GLN:HG2', 'Z:245:PRO:CD', 'B:106:CYS:SG', 'E:372:VAL:HA', 'B:319:PRO:HD2', 'F:244:LEU:HG', 'F:242:GLY:O', 'F:281:GLY:HA3', 'B:437:CYS:HB3', 'Z:233:VAL:HA', 'E:150:LEU:HD21', 'Z:220:HIS:HA', 'Y:230:PRO:HD3', 'F:414:PRO:HD2', 'C:387:ASN:OD1', 'I:602:LYS:HB3', 'C:331:THR:HG21', 'F:246:PRO:HG3', 'Z:246:PRO:HD3', 'F:254:LEU:HA', 'B:485:ARG:O', 'B:159:GLN:HE21', 'F:283:THR:HA', 'B:434:TYR:O', 'C:256:ASN:HB2', 'B:192:PRO:HD2', 'A:92:LEU:HD13', 'E:250:GLU:HA', 'E:221:GLU:HG2', 'D:112:ILE:HG12', 'Z:220:HIS:HA', 'B:446:TYR:CZ', 'D:92:LEU:HD22', 'B:486:PRO:HD3', 'C:239:GLU:HB3', 'E:384:MET:HE2', 'D:204:LEU:HD22', 'D:200:GLN:HE21', 'F:334:ASN:HB2', 'C:181:ASP:HB3', 'F:371:ASN:HB2', 'C:334:ASN:HB2', 'C:160:GLN:HG3', 'E:486:PRO:HD3', 'B:322:TYR:HA', 'E:469:ASN:HB2', 'C:200:ALA:HB3'], 'Clash overlap (&#8491)': ['1.535', '1.523', '1.506', '1.506', '1.421', '1.262', '1.242', '1.196', '1.162', '1.149', '1.145', '1.112', '1.096', '1.027', '1.008', '0.987', '0.985', '0.975', '0.973', '0.960', '0.933', '0.930', '0.894', '0.889', '0.882', '0.870', '0.847', '0.839', '0.827', '0.825', '0.825', '0.818', '0.797', '0.791', '0.790', '0.788', '0.785', '0.751', '0.747', '0.740', '0.740', '0.738', '0.738', '0.734', '0.733', '0.720', '0.703', '0.700', '0.699', '0.697', '0.690', '0.690', '0.688', '0.686', '0.683', '0.683', '0.682', '0.681', '0.679', '0.670', '0.666', '0.663', '0.661', '0.660', '0.658', '0.656', '0.655', '0.651', '0.650', '0.649', '0.648', '0.644', '0.642', '0.636', '0.631', '0.628', '0.626', '0.626', '0.624', '0.623', '0.617', '0.615', '0.614', '0.612', '0.611', '0.610', '0.605', '0.604', '0.603', '0.602', '0.600', '0.599', '0.593', '0.589', '0.588', '0.588', '0.587', '0.586', '0.586', '0.585', '0.585', '0.582', '0.578', '0.578', '0.578', '0.573', '0.569', '0.569', '0.568', '0.567', '0.566', '0.562', '0.559', '0.557', '0.557', '0.555', '0.553', '0.553', '0.546', '0.542', '0.538', '0.538', '0.538', '0.537', '0.537', '0.537', '0.535', '0.534', '0.530', '0.530', '0.530', '0.529', '0.529', '0.528', '0.527', '0.527', '0.526', '0.521', '0.521', '0.520', '0.519', '0.519', '0.519', '0.518', '0.518', '0.517', '0.517', '0.515', '0.515', '0.514', '0.514', '0.514', '0.513', '0.513', '0.512', '0.511', '0.510', '0.509', '0.508', '0.505', '0.505', '0.503', '0.499', '0.498', '0.494', '0.493', '0.493', '0.493', '0.492', '0.491', '0.491', '0.490', '0.490', '0.490', '0.489', '0.489', '0.489', '0.488', '0.488', '0.487', '0.487', '0.487', '0.486', '0.484', '0.482', '0.481', '0.480', '0.479', '0.476', '0.474', '0.473', '0.473', '0.473', '0.472', '0.471', '0.470', '0.468', '0.467', '0.466', '0.466', '0.466', '0.465', '0.465', '0.464', '0.464', '0.464', '0.462', '0.462', '0.461', '0.460', '0.460', '0.458', '0.457', '0.455', '0.454', '0.453', '0.453', '0.451', '0.451', '0.451', '0.450', '0.450', '0.450', '0.448', '0.448', '0.448', '0.446', '0.446', '0.445', '0.444', '0.444', '0.444', '0.444', '0.444', '0.444', '0.443', '0.443', '0.442', '0.442', '0.441', '0.441', '0.441', '0.440', '0.438', '0.438', '0.437', '0.437', '0.437', '0.436', '0.435', '0.435', '0.435', '0.435', '0.435', '0.434', '0.434', '0.432', '0.432', '0.432', '0.432', '0.432', '0.431', '0.431', '0.431', '0.430', '0.430', '0.429', '0.429', '0.428', '0.428', '0.428', '0.427', '0.427', '0.427', '0.424', '0.423', '0.422', '0.422', '0.421', '0.421', '0.420', '0.419', '0.419', '0.419', '0.418', '0.417', '0.417', '0.417', '0.416', '0.416', '0.416', '0.415', '0.415', '0.415', '0.415', '0.414', '0.414', '0.413', '0.413', '0.413', '0.412', '0.412', '0.412', '0.411', '0.411', '0.411', '0.409', '0.409', '0.408', '0.408', '0.408', '0.408', '0.407', '0.407', '0.407', '0.406', '0.406', '0.406', '0.405', '0.404', '0.404', '0.402', '0.402', '0.401', '0.401', '0.401', '0.401', '0.400', '0.400', '0.400', '0.400']}.length > 0) {
+                                    Write_Table(list_to_write = {'Model ID': ['1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1', '1'], 'Atom-1': ['I:620:LYS:C', 'I:620:LYS:HG3', 'I:620:LYS:CG', 'I:617:HIS:CB', 'I:617:HIS:HB3', 'I:618:SER:C', 'I:620:LYS:O', 'I:619:THR:N', 'I:620:LYS:CG', 'I:620:LYS:O', 'I:620:LYS:C', 'I:617:HIS:C', 'I:619:THR:N', 'I:569:GLU:HG3', 'I:620:LYS:CB', 'I:618:SER:C', 'I:618:SER:OG', 'I:620:LYS:HG2', 'Z:233:VAL:HG13', 'I:618:SER:N', 'I:620:LYS:CA', 'I:617:HIS:CA', 'I:619:THR:H', 'I:617:HIS:CB', 'I:617:HIS:HB3', 'I:617:HIS:CA', 'I:620:LYS:HG3', 'I:618:SER:N', 'I:619:THR:H', 'Z:244:VAL:HB', 'B:324:LEU:HB3', 'F:277:GLU:HB3', 'I:620:LYS:HE3', 'I:617:HIS:C', 'I:617:HIS:HB2', 'I:620:LYS:CA', 'I:620:LYS:HG2', 'E:415:TRP:HB2', 'C:276:LEU:HB3', 'B:297:ASP:HB3', 'I:619:THR:N', 'H:441:GLU:HA', 'E:286:GLN:HA', 'B:157:LYS:HD3', 'E:345:GLU:HB3', 'B:398:THR:HB', 'E:212:LEU:HD23', 'G:456:THR:HG21', 'I:619:THR:N', 'G:456:THR:HG21', 'E:428:ASP:HA', 'I:617:HIS:CB', 'B:181:LEU:HD13', 'G:456:THR:CG2', 'I:620:LYS:CB', 'E:333:THR:HB', 'I:619:THR:N', 'C:413:ILE:HG12', 'F:144:ASN:HA', 'B:177:GLU:O', 'I:617:HIS:NE2', 'K:71:TYR:HB3', 'I:617:HIS:CE1', 'B:285:ARG:HB3', 'I:605:ASP:HA', 'C:282:ARG:HG2', 'F:286:ALA:HB2', 'A:70:MET:HE1', 'I:617:HIS:HB3', 'I:620:LYS:HG2', 'E:186:THR:HA', 'B:156:GLN:HB3', 'F:330:PHE:HB3', 'E:121:ARG:HB2', 'I:620:LYS:CD', 'B:169:VAL:HA', 'F:218:THR:HB', 'I:617:HIS:CB', 'D:69:ARG:O', 'E:442:PRO:HA', 'E:191:ILE:HB', 'A:109:ILE:O', 'I:620:LYS:CG', 'B:428:ASP:HA', 'F:369:HIS:O', 'E:330:SER:HA', 'E:355:HIS:HB3', 'I:577:SER:HB2', 'I:617:HIS:HB2', 'E:403:MET:HG3', 'Z:234:PRO:HD2', 'C:275:GLU:HG2', 'H:440:LYS:HG3', 'F:341:TRP:HB3', 'C:92:LEU:HD12', 'H:437:LYS:HB2', 'F:284:SER:HB2', 'G:460:SER:HB3', 'I:617:HIS:CB', 'E:175:GLU:O', 'B:168:VAL:HG13', 'I:620:LYS:O', 'E:324:LEU:HD23', 'I:569:GLU:HG3', 'F:382:LYS:HG3', 'B:345:GLU:HB3', 'F:75:GLN:HG3', 'B:121:ARG:HB3', 'C:348:PHE:HB2', 'E:145:PHE:HE1', 'E:291:ASP:HB3', 'E:445:ARG:N', 'E:185:GLU:O', 'I:620:LYS:HD2', 'D:56:SER:O', 'B:235:VAL:HG11', 'A:184:CYS:HB3', 'C:102:PRO:HG3', 'Z:233:VAL:CG1', 'B:243:GLU:O', 'D:184:CYS:HB3', 'E:425:SER:HB3', 'I:620:LYS:HG3', 'C:351:ASN:HB3', 'D:70:MET:HG3', 'B:347:TRP:HB3', 'B:283:GLN:HG3', 'I:620:LYS:CG', 'E:145:PHE:CE1', 'G:456:THR:HG21', 'F:360:TRP:HB3', 'D:191:GLU:HG2', 'E:194:ASN:HA', 'D:166:MET:HE1', 'E:285:ARG:HB2', 'E:297:ASP:HB3', 'D:181:ARG:HD3', 'B:243:GLU:HG2', 'D:88:LEU:HG', 'F:209:GLU:HB2', 'B:310:THR:HB', 'B:441:ASN:O', 'C:282:ARG:HD3', 'G:456:THR:HG23', 'E:284:ASN:O', 'B:161:GLN:HB2', 'B:403:MET:HG3', 'E:180:GLN:O', 'B:242:GLU:HG2', 'F:276:LEU:HD23', 'E:199:ARG:HD3', 'E:248:GLY:HA3', 'E:147:TYR:O', 'F:330:PHE:HB3', 'E:352:VAL:HB', 'H:469:VAL:HB', 'C:278:ASP:OD2', 'C:224:LEU:HG', 'H:459:ARG:O', 'H:467:LYS:HE2', 'B:248:GLY:HA3', 'C:220:PHE:HE2', 'C:122:TYR:O', 'C:40:ARG:N', 'Y:221:LEU:N', 'D:137:ARG:HG3', 'E:207:SER:O', 'E:441:ASN:O', 'G:456:THR:HG23', 'C:331:THR:HB', 'F:40:ARG:N', 'G:459:ARG:H', 'E:159:GLN:O', 'B:332:LEU:HA', 'B:113:GLN:O', 'E:256:LEU:HD22', 'E:359:PHE:HE1', 'C:321:PHE:HA', 'E:283:GLN:HG3', 'F:395:TRP:HD1', 'G:469:VAL:HB', 'F:339:SER:HA', 'A:172:ASP:O', 'C:310:GLY:O', 'A:180:CYS:HB3', 'B:160:LYS:HG3', 'A:196:ASP:HA', 'D:213:LEU:N', 'B:181:LEU:CD1', 'H:458:ARG:HB2', 'E:466:VAL:HG22', 'E:467:TRP:CD1', 'F:238:LYS:HA', 'C:242:GLY:HA3', 'F:321:PHE:HZ', 'I:620:LYS:HG3', 'A:188:LEU:HD23', 'C:52:ALA:HB2', 'C:294:GLY:O', 'D:138:ILE:HG12', 'A:131:SER:HB3', 'C:232:LYS:HB3', 'F:82:GLU:O', 'F:217:TRP:CZ3', 'E:345:GLU:HG3', 'C:282:ARG:HA', 'C:175:THR:HG23', 'F:72:ILE:O', 'D:93:PHE:HD1', 'F:257:GLU:O', 'B:241:CYS:HA', 'B:407:THR:HG22', 'G:456:THR:OG1', 'C:67:GLN:HA', 'E:413:ASP:HB2', 'E:445:ARG:H', 'Y:229:VAL:HG13', 'F:370:LEU:HA', 'A:199:ASP:HA', 'C:232:LYS:HB3', 'A:55:CYS:O', 'E:367:LYS:HB3', 'H:433:LEU:HD13', 'B:112:LEU:O', 'B:235:VAL:HG22', 'K:60:ARG:HA', 'D:169:LEU:HG', 'E:415:TRP:HH2', 'C:280:ASN:HB3', 'D:167:LYS:HE2', 'I:617:HIS:O', 'B:282:ILE:HG23', 'B:368:TYR:HB2', 'B:345:GLU:HA', 'B:241:CYS:SG', 'E:164:ASP:O', 'I:620:LYS:O', 'F:312:ALA:HA', 'A:213:LEU:N', 'D:163:LEU:HD12', 'G:456:THR:HG21', 'B:279:TRP:HB3', 'E:176:LEU:HD23', 'B:240:GLU:OE2', 'B:327:ASP:HA', 'C:276:LEU:O', 'B:143:SER:O', 'B:248:GLY:HA3', 'G:462:SER:HA', 'B:285:ARG:HD3', 'B:390:LEU:HB3', 'F:179:CYS:SG', 'E:99:ASP:HA', 'Y:230:PRO:HA', 'B:465:VAL:O', 'D:171:VAL:O', 'C:63:ASP:O', 'E:310:THR:HG23', 'Y:222:PRO:HG3', 'K:65:PRO:HA', 'D:219:GLN:HB3', 'D:172:ASP:O', 'B:172:TYR:CD1', 'A:177:ILE:HG23', 'B:99:ASP:OD1', 'I:618:SER:N', 'E:202:LEU:HD21', 'C:174:ILE:HD12', 'B:234:PRO:HA', 'F:179:CYS:HB3', 'D:186:ARG:HG2', 'F:294:GLY:O', 'A:142:LYS:HA', 'E:310:THR:HB', 'F:220:PHE:HE2', 'B:99:ASP:HA', 'B:300:LYS:HB2', 'I:620:LYS:HG3', 'F:66:LEU:O', 'Y:235:GLY:O', 'B:295:LYS:O', 'E:381:ASN:HD21', 'B:272:MET:HA', 'B:160:LYS:CB', 'E:143:SER:O', 'Z:244:VAL:HB', 'A:66:SER:HB2', 'E:358:GLY:O', 'B:318:LEU:HD12', 'E:235:VAL:HG22', 'E:234:PRO:HA', 'C:57:THR:HA', 'B:424:CYS:HB3', 'B:160:LYS:HB2', 'E:147:TYR:HD1', 'B:172:TYR:CE2', 'Y:229:VAL:HA', 'F:413:ILE:HG13', 'C:385:THR:HB', 'I:579:TYR:HB2', 'C:321:PHE:HE1', 'F:192:LEU:HG', 'Z:245:PRO:HB2', 'E:235:VAL:HG11', 'B:339:GLU:HG2', 'B:159:GLN:HB2', 'F:276:LEU:O', 'B:403:MET:HE2', 'C:238:LYS:HA', 'B:191:ILE:N', 'A:92:LEU:HA', 'E:245:ILE:HG13', 'C:88:LYS:HE2', 'D:109:ILE:HA', 'B:172:TYR:HE2', 'B:287:ASP:HA', 'D:92:LEU:HA', 'B:485:ARG:HA', 'B:247:LYS:HD3', 'E:373:ASN:HA', 'D:204:LEU:HA', 'D:200:GLN:HB2', 'F:304:TYR:HE2', 'C:178:ASP:H', 'F:360:TRP:CE3', 'C:304:TYR:HE2', 'C:156:GLN:O', 'E:485:ARG:HA', 'B:304:GLY:HA3', 'E:382:ALA:HB2', 'C:197:PRO:HD2'], 'Atom-2': ['K:53:ARG:HD3', 'K:53:ARG:CD', 'K:53:ARG:HD2', 'K:53:ARG:HH21', 'K:53:ARG:NH2', 'K:53:ARG:HH12', 'K:53:ARG:HD3', 'K:53:ARG:HH12', 'K:53:ARG:CD', 'K:53:ARG:CD', 'K:53:ARG:CD', 'K:53:ARG:NH2', 'K:53:ARG:NH1', 'Y:237:PHE:CE1', 'K:53:ARG:HD2', 'K:53:ARG:NH1', 'Y:243:LYS:NZ', 'K:53:ARG:HD2', 'Z:234:PRO:HD3', 'K:53:ARG:NH2', 'K:53:ARG:HD3', 'K:53:ARG:NH2', 'K:53:ARG:HH22', 'K:53:ARG:NH2', 'K:53:ARG:CZ', 'K:53:ARG:HH21', 'K:53:ARG:CG', 'K:53:ARG:HH22', 'K:53:ARG:NH2', 'Z:245:PRO:HD3', 'B:329:ILE:HD11', 'F:407:LYS:HB2', 'K:53:ARG:O', 'K:53:ARG:CZ', 'K:53:ARG:HE', 'K:53:ARG:CD', 'K:53:ARG:CD', 'E:436:ARG:HA', 'C:405:MET:HE2', 'B:298:PRO:HD3', 'K:53:ARG:CZ', 'H:451:SER:HA', 'E:479:LYS:HG2', 'Z:231:ASP:HB2', 'E:479:LYS:HB2', 'B:439:ALA:HB2', 'F:150:LEU:HD13', 'I:579:TYR:C', 'K:53:ARG:HH22', 'I:579:TYR:N', 'E:463:ASP:HB2', 'K:53:ARG:CZ', 'E:189:SER:HB3', 'I:579:TYR:C', 'K:53:ARG:CD', 'E:360:THR:HA', 'K:53:ARG:NH2', 'C:414:PRO:HD2', 'F:147:ILE:HD12', 'B:181:LEU:HG', 'Y:236:ASN:HA', 'K:74:ARG:HB2', 'Y:236:ASN:HA', 'B:480:MET:HB3', 'I:611:ALA:HB2', 'D:73:LEU:HD22', 'F:312:ALA:HB3', 'C:52:ALA:HB3', 'K:53:ARG:HH21', 'K:53:ARG:NE', 'E:190:ASN:HB2', 'Z:233:VAL:HG21', 'F:364:LYS:HB3', 'E:122:PRO:HD3', 'K:53:ARG:HA', 'Z:223:LEU:HD12', 'F:412:ILE:HG13', 'K:53:ARG:HE', 'D:73:LEU:HG', 'E:465:VAL:HG13', 'E:192:PRO:HD3', 'A:113:LEU:HG', 'K:53:ARG:NE', 'B:463:ASP:HB2', 'F:393:ILE:HA', 'E:361:VAL:HB', 'E:376:ARG:HG3', 'Y:245:PRO:HB3', 'K:53:ARG:NE', 'E:435:ASN:HB2', 'Z:237:PHE:HB3', 'C:285:THR:HG23', 'H:441:GLU:OE1', 'F:354:GLU:HA', 'E:214:SER:HB3', 'H:479:THR:HG21', 'F:312:ALA:HB2', 'Y:247:GLU:HG3', 'K:53:ARG:NE', 'E:176:LEU:HG', 'B:169:VAL:HG23', 'K:53:ARG:NH1', 'E:329:ILE:HG12', 'Y:237:PHE:HE1', 'F:402:TRP:HE1', 'B:479:LYS:HB2', 'F:79:LYS:HE3', 'B:122:PRO:HD3', 'C:352:CYS:SG', 'F:80:THR:HA', 'E:294:ARG:HH21', 'E:464:GLY:HA2', 'E:189:SER:HB2', 'K:53:ARG:HA', 'D:59:ASP:HB2', 'C:254:LEU:HA', 'B:223:CYS:HA', 'E:203:GLU:HB2', 'Z:234:PRO:HD3', 'B:247:LYS:HG3', 'E:223:CYS:HA', 'E:434:TYR:CE2', 'K:53:ARG:HA', 'C:354:GLU:HB2', 'F:48:THR:HG22', 'K:51:LYS:HD3', 'B:323:TRP:HE3', 'K:53:ARG:HA', 'F:80:THR:HA', 'I:579:TYR:CA', 'F:362:MET:HE3', 'Z:234:PRO:HB3', 'E:197:VAL:HG12', 'E:212:LEU:HD22', 'E:480:MET:HB3', 'E:298:PRO:HD3', 'E:289:SER:OG', 'B:246:ARG:NH2', 'F:69:LEU:HD23', 'F:217:TRP:HB2', 'B:313:LYS:HB2', 'B:465:VAL:HA', 'D:73:LEU:HD13', 'I:579:TYR:C', 'E:321:GLU:HA', 'Z:229:VAL:HB', 'B:435:ASN:HB2', 'E:184:ASP:HB2', 'B:488:PHE:HE2', 'F:405:MET:HG3', 'E:203:GLU:OE1', 'F:236:GLN:HG2', 'E:150:LEU:HG', 'F:364:LYS:CB', 'E:378:THR:O', 'H:477:GLU:HB3', 'C:282:ARG:HB2', 'C:251:GLU:HG2', 'H:485:SER:HA', 'H:469:VAL:HG22', 'C:236:GLN:HG2', 'C:412:ILE:HG23', 'C:126:ILE:HG12', 'C:44:TYR:HH', 'Y:222:PRO:HD2', 'D:138:ILE:HG13', 'E:210:GLN:HG3', 'E:465:VAL:HA', 'I:580:SER:N', 'C:367:ALA:HB2', 'F:44:TYR:HH', 'G:483:VAL:HG11', 'E:163:LYS:HB2', 'B:335:MET:HE2', 'B:117:LEU:HG', 'F:205:LEU:HD12', 'E:370:ILE:HD11', 'D:57:ASP:HB2', 'E:323:TRP:HE3', 'F:398:TRP:HB2', 'G:477:GLU:HB3', 'F:345:ASN:HB2', 'A:176:LYS:HG2', 'D:50:SER:HA', 'A:184:CYS:SG', 'Z:233:VAL:HG23', 'F:102:PRO:HG3', 'D:214:PRO:HD3', 'E:189:SER:HB3', 'H:483:VAL:HG11', 'E:476:SER:HA', 'E:470:TRP:HB2', 'F:256:ASN:HB2', 'C:252:PHE:HA', 'F:367:ALA:HA', 'K:53:ARG:HD2', 'A:190:ARG:HD2', 'C:55:LEU:HB3', 'C:300:TYR:HA', 'D:141:LEU:HB2', 'Z:224:ILE:HG23', 'C:236:GLN:HB2', 'F:86:LEU:HG', 'F:273:ARG:HD2', 'E:351:LYS:HG2', 'E:90:PRO:HG2', 'C:194:PHE:HB3', 'F:76:VAL:HG23', 'D:97:LYS:HE3', 'F:261:LEU:HG', 'B:244:ILE:HD12', 'B:431:GLY:HA3', 'I:578:SER:O', 'C:70:GLU:HG2', 'E:423:GLN:HE21', 'E:464:GLY:HA2', 'Y:232:LEU:HG', 'F:393:ILE:HG23', 'A:202:LYS:HE3', 'C:236:GLN:CB', 'F:309:GLY:HA3', 'E:412:ASN:HD21', 'H:442:LEU:HD22', 'B:116:LEU:HG', 'C:244:LEU:HG', 'K:60:ARG:NE', 'D:173:ILE:HD11', 'E:422:LYS:HE3', 'C:282:ARG:HG3', 'E:456:MET:HE2', 'K:53:ARG:CZ', 'B:329:ILE:HD13', 'B:405:PHE:HB2', 'B:350:ASP:O', 'B:280:THR:HG23', 'E:167:ASN:HB3', 'K:53:ARG:CG', 'F:398:TRP:CD1', 'A:214:PRO:HD3', 'E:205:LEU:HD21', 'I:578:SER:C', 'B:483:LYS:HB3', 'E:179:HIS:HB2', 'B:242:GLU:HB3', 'B:330:SER:OG', 'C:283:THR:HA', 'B:146:GLN:HG3', 'C:236:GLN:CG', 'G:483:VAL:O', 'B:446:TYR:HD2', 'B:394:ASN:HB3', 'F:218:THR:HG23', 'E:100:PRO:HD3', 'Y:233:VAL:HB', 'B:476:SER:HA', 'D:175:ILE:HG13', 'C:67:GLN:HB2', 'E:318:LEU:HG', 'Y:230:PRO:HD3', 'K:75:PRO:HB3', 'Y:220:HIS:HB3', 'D:176:LYS:HG2', 'Z:224:ILE:HB', 'B:219:GLN:HG2', 'B:101:ASP:HB3', 'K:53:ARG:CZ', 'F:139:ILE:HB', 'C:193:TYR:HE2', 'C:242:GLY:O', 'F:208:CYS:HB3', 'D:187:ALA:N', 'F:300:TYR:HA', 'A:145:VAL:HG12', 'E:313:LYS:HG3', 'F:412:ILE:HG23', 'B:100:PRO:HD3', 'B:327:ASP:OD1', 'K:53:ARG:CB', 'F:70:GLU:HG2', 'Y:238:LYS:HG2', 'B:298:PRO:HD2', 'E:384:MET:HB3', 'B:277:GLY:CA', 'Z:233:VAL:HA', 'E:146:GLN:HG2', 'Z:245:PRO:CD', 'B:106:CYS:SG', 'E:372:VAL:HA', 'B:319:PRO:HD2', 'F:244:LEU:HG', 'F:242:GLY:O', 'F:281:GLY:HA3', 'B:437:CYS:HB3', 'Z:233:VAL:HA', 'E:150:LEU:HD21', 'Z:220:HIS:HA', 'Y:230:PRO:HD3', 'F:414:PRO:HD2', 'C:387:ASN:OD1', 'I:602:LYS:HB3', 'C:331:THR:HG21', 'F:246:PRO:HG3', 'Z:246:PRO:HD3', 'F:254:LEU:HA', 'B:485:ARG:O', 'B:159:GLN:HE21', 'F:283:THR:HA', 'B:434:TYR:O', 'C:256:ASN:HB2', 'B:192:PRO:HD2', 'A:92:LEU:HD13', 'E:250:GLU:HA', 'E:221:GLU:HG2', 'D:112:ILE:HG12', 'Z:220:HIS:HA', 'B:446:TYR:CZ', 'D:92:LEU:HD22', 'B:486:PRO:HD3', 'C:239:GLU:HB3', 'E:384:MET:HE2', 'D:204:LEU:HD22', 'D:200:GLN:HE21', 'F:334:ASN:HB2', 'C:181:ASP:HB3', 'F:371:ASN:HB2', 'C:334:ASN:HB2', 'C:160:GLN:HG3', 'E:486:PRO:HD3', 'B:322:TYR:HA', 'E:469:ASN:HB2', 'C:200:ALA:HB3'], 'Clash overlap (&#8491)': ['1.535', '1.523', '1.506', '1.506', '1.421', '1.262', '1.242', '1.196', '1.162', '1.149', '1.145', '1.112', '1.096', '1.027', '1.008', '0.987', '0.985', '0.975', '0.973', '0.960', '0.933', '0.930', '0.894', '0.889', '0.882', '0.870', '0.847', '0.839', '0.827', '0.825', '0.825', '0.818', '0.797', '0.791', '0.790', '0.788', '0.785', '0.751', '0.747', '0.740', '0.740', '0.738', '0.738', '0.734', '0.733', '0.720', '0.703', '0.700', '0.699', '0.697', '0.690', '0.690', '0.688', '0.686', '0.683', '0.683', '0.682', '0.681', '0.679', '0.670', '0.666', '0.663', '0.661', '0.660', '0.658', '0.656', '0.655', '0.651', '0.650', '0.649', '0.648', '0.644', '0.642', '0.636', '0.631', '0.628', '0.626', '0.626', '0.624', '0.623', '0.617', '0.615', '0.614', '0.612', '0.611', '0.610', '0.605', '0.604', '0.603', '0.602', '0.600', '0.599', '0.593', '0.589', '0.588', '0.588', '0.587', '0.586', '0.586', '0.585', '0.585', '0.582', '0.578', '0.578', '0.578', '0.573', '0.569', '0.569', '0.568', '0.567', '0.566', '0.562', '0.559', '0.557', '0.557', '0.555', '0.553', '0.553', '0.546', '0.542', '0.538', '0.538', '0.538', '0.537', '0.537', '0.537', '0.535', '0.534', '0.530', '0.530', '0.530', '0.529', '0.529', '0.528', '0.527', '0.527', '0.526', '0.521', '0.521', '0.520', '0.519', '0.519', '0.519', '0.518', '0.518', '0.517', '0.517', '0.515', '0.515', '0.514', '0.514', '0.514', '0.513', '0.513', '0.512', '0.511', '0.510', '0.509', '0.508', '0.505', '0.505', '0.503', '0.499', '0.498', '0.494', '0.493', '0.493', '0.493', '0.492', '0.491', '0.491', '0.490', '0.490', '0.490', '0.489', '0.489', '0.489', '0.488', '0.488', '0.487', '0.487', '0.487', '0.486', '0.484', '0.482', '0.481', '0.480', '0.479', '0.476', '0.474', '0.473', '0.473', '0.473', '0.472', '0.471', '0.470', '0.468', '0.467', '0.466', '0.466', '0.466', '0.465', '0.465', '0.464', '0.464', '0.464', '0.462', '0.462', '0.461', '0.460', '0.460', '0.458', '0.457', '0.455', '0.454', '0.453', '0.453', '0.451', '0.451', '0.451', '0.450', '0.450', '0.450', '0.448', '0.448', '0.448', '0.446', '0.446', '0.445', '0.444', '0.444', '0.444', '0.444', '0.444', '0.444', '0.443', '0.443', '0.442', '0.442', '0.441', '0.441', '0.441', '0.440', '0.438', '0.438', '0.437', '0.437', '0.437', '0.436', '0.435', '0.435', '0.435', '0.435', '0.435', '0.434', '0.434', '0.432', '0.432', '0.432', '0.432', '0.432', '0.431', '0.431', '0.431', '0.430', '0.430', '0.429', '0.429', '0.428', '0.428', '0.428', '0.427', '0.427', '0.427', '0.424', '0.423', '0.422', '0.422', '0.421', '0.421', '0.420', '0.419', '0.419', '0.419', '0.418', '0.417', '0.417', '0.417', '0.416', '0.416', '0.416', '0.415', '0.415', '0.415', '0.415', '0.414', '0.414', '0.413', '0.413', '0.413', '0.412', '0.412', '0.412', '0.411', '0.411', '0.411', '0.409', '0.409', '0.408', '0.408', '0.408', '0.408', '0.407', '0.407', '0.407', '0.406', '0.406', '0.406', '0.405', '0.404', '0.404', '0.402', '0.402', '0.401', '0.401', '0.401', '0.401', '0.400', '0.400', '0.400', '0.400']})
+                                    document.write(space);
+                                }
+
+                                var text2 = "<h5 class=ex2 align= center><u><a name='torsion1'>Torsion angles: Protein backbone</a></u></h5>";
+                                text2 += "<p align='justify'><i> In the following table, Ramachandran outliers are listed. The Analysed column shows the number of residues for which the backbone conformation was analysed. </i></p>"
+                                document.write(text2);
+                                document.write(space);
+                                if ([['Model ID', 'Analyzed', 'Favored', 'Allowed', 'Outliers'], ['1', '2226', '2036', '164', '26']].length > 0) {
+                                    Write_Table(list_to_write = [['Model ID', 'Analyzed', 'Favored', 'Allowed', 'Outliers'], ['1', '2226', '2036', '164', '26']])
+                                    document.write(space);
+                                }
+
+
+                                var text4 = "<i> Detailed list of outliers are tabulated below. </i>";
+                                document.write(text4);
+                                document.write(space);
+                                if ([['Model ID', 'Chain and res ID', 'Residue type'], ['1', 'A:53', 'PRO'], ['1', 'B:170', 'ASN'], ['1', 'B:190', 'ASN'], ['1', 'B:287', 'ASP'], ['1', 'B:358', 'GLY'], ['1', 'B:437', 'CYS'], ['1', 'C:95', 'ASN'], ['1', 'C:186', 'GLY'], ['1', 'C:365', 'CYS'], ['1', 'C:368', 'GLY'], ['1', 'C:398', 'TRP'], ['1', 'D:53', 'PRO'], ['1', 'D:214', 'PRO'], ['1', 'D:215', 'SER'], ['1', 'E:168', 'VAL'], ['1', 'E:172', 'TYR'], ['1', 'E:287', 'ASP'], ['1', 'E:349', 'GLY'], ['1', 'E:379', 'ALA'], ['1', 'E:437', 'CYS'], ['1', 'F:95', 'ASN'], ['1', 'F:186', 'GLY'], ['1', 'F:224', 'LEU'], ['1', 'F:365', 'CYS'], ['1', 'I:613', 'HIS'], ['1', 'Z:233', 'VAL']].length > 0) {
+                                    Write_Table(list_to_write = [['Model ID', 'Chain and res ID', 'Residue type'], ['1', 'A:53', 'PRO'], ['1', 'B:170', 'ASN'], ['1', 'B:190', 'ASN'], ['1', 'B:287', 'ASP'], ['1', 'B:358', 'GLY'], ['1', 'B:437', 'CYS'], ['1', 'C:95', 'ASN'], ['1', 'C:186', 'GLY'], ['1', 'C:365', 'CYS'], ['1', 'C:368', 'GLY'], ['1', 'C:398', 'TRP'], ['1', 'D:53', 'PRO'], ['1', 'D:214', 'PRO'], ['1', 'D:215', 'SER'], ['1', 'E:168', 'VAL'], ['1', 'E:172', 'TYR'], ['1', 'E:287', 'ASP'], ['1', 'E:349', 'GLY'], ['1', 'E:379', 'ALA'], ['1', 'E:437', 'CYS'], ['1', 'F:95', 'ASN'], ['1', 'F:186', 'GLY'], ['1', 'F:224', 'LEU'], ['1', 'F:365', 'CYS'], ['1', 'I:613', 'HIS'], ['1', 'Z:233', 'VAL']])
+                                    document.write(space);
+                                }
+
+
+                                var text3 = "<h5 class=ex2 align=center><u><a name='torsion2'>Torsion angles: Protein sidechains</a></u></h5>";
+                                text3 += "<i> In the following table, sidechain outliers are listed. The Analysed column shows the number of residues for which the sidechain conformation was analysed. </i>"
+                                document.write(text3);
+                                document.write(space);
+                                if ([['Model ID', 'Analyzed', 'Favored', 'Allowed', 'Outliers'], ['1', '1982', '1568', '223', '191']].length > 0) {
+                                    Write_Table(list_to_write = [['Model ID', 'Analyzed', 'Favored', 'Allowed', 'Outliers'], ['1', '1982', '1568', '223', '191']])
+                                    document.write(space);
+                                }
+
+
+                                var text4 = "<i> Detailed list of outliers are tabulated below. </i>";
+                                document.write(text4);
+                                document.write(space);
+                                if ([['Model ID', 'Chain and res ID', 'Residue type'], ['1', 'I:559', 'GLU'], ['1', 'I:560', 'SER'], ['1', 'I:572', 'SER'], ['1', 'I:578', 'SER'], ['1', 'I:580', 'SER'], ['1', 'I:586', 'SER'], ['1', 'I:595', 'THR'], ['1', 'I:606', 'GLU'], ['1', 'I:609', 'SER'], ['1', 'I:610', 'GLU'], ['1', 'I:618', 'SER'], ['1', 'A:55', 'CYS'], ['1', 'A:58', 'GLU'], ['1', 'A:59', 'ASP'], ['1', 'A:63', 'LYS'], ['1', 'A:79', 'GLN'], ['1', 'A:90', 'ASN'], ['1', 'A:92', 'LEU'], ['1', 'A:103', 'HIS'], ['1', 'A:131', 'SER'], ['1', 'A:185', 'SER'], ['1', 'A:191', 'GLU'], ['1', 'A:203', 'GLN'], ['1', 'A:211', 'ASP'], ['1', 'Z:223', 'LEU'], ['1', 'Z:227', 'LYS'], ['1', 'Z:233', 'VAL'], ['1', 'Z:239', 'SER'], ['1', 'B:108', 'THR'], ['1', 'B:118', 'GLN'], ['1', 'B:140', 'THR'], ['1', 'B:150', 'LEU'], ['1', 'B:152', 'LYS'], ['1', 'B:159', 'GLN'], ['1', 'B:164', 'ASP'], ['1', 'B:165', 'ASN'], ['1', 'B:170', 'ASN'], ['1', 'B:173', 'SER'], ['1', 'B:174', 'SER'], ['1', 'B:176', 'LEU'], ['1', 'B:179', 'HIS'], ['1', 'B:186', 'THR'], ['1', 'B:193', 'THR'], ['1', 'B:211', 'LYS'], ['1', 'B:212', 'LEU'], ['1', 'B:240', 'GLU'], ['1', 'B:243', 'GLU'], ['1', 'B:250', 'GLU'], ['1', 'B:251', 'THR'], ['1', 'B:261', 'SER'], ['1', 'B:262', 'SER'], ['1', 'B:300', 'LYS'], ['1', 'B:310', 'THR'], ['1', 'B:332', 'LEU'], ['1', 'B:346', 'ASP'], ['1', 'B:378', 'THR'], ['1', 'B:406', 'SER'], ['1', 'B:417', 'THR'], ['1', 'B:422', 'LYS'], ['1', 'B:423', 'GLN'], ['1', 'B:453', 'THR'], ['1', 'B:458', 'LYS'], ['1', 'B:461', 'THR'], ['1', 'B:463', 'ASP'], ['1', 'B:473', 'SER'], ['1', 'B:484', 'ILE'], ['1', 'B:487', 'PHE'], ['1', 'C:48', 'THR'], ['1', 'C:57', 'THR'], ['1', 'C:67', 'GLN'], ['1', 'C:99', 'SER'], ['1', 'C:119', 'ILE'], ['1', 'C:128', 'THR'], ['1', 'C:163', 'GLU'], ['1', 'C:168', 'THR'], ['1', 'C:178', 'ASP'], ['1', 'C:209', 'GLU'], ['1', 'C:211', 'ASP'], ['1', 'C:213', 'SER'], ['1', 'C:221', 'GLN'], ['1', 'C:224', 'LEU'], ['1', 'C:227', 'SER'], ['1', 'C:247', 'THR'], ['1', 'C:249', 'THR'], ['1', 'C:280', 'ASN'], ['1', 'C:282', 'ARG'], ['1', 'C:296', 'GLU'], ['1', 'C:323', 'ASP'], ['1', 'C:326', 'SER'], ['1', 'C:340', 'THR'], ['1', 'C:343', 'ASN'], ['1', 'C:349', 'GLU'], ['1', 'C:358', 'SER'], ['1', 'C:385', 'THR'], ['1', 'C:390', 'ASP'], ['1', 'C:397', 'THR'], ['1', 'C:416', 'ASN'], ['1', 'C:419', 'THR'], ['1', 'H:432', 'LYS'], ['1', 'H:444', 'THR'], ['1', 'H:453', 'SER'], ['1', 'H:456', 'THR'], ['1', 'H:464', 'THR'], ['1', 'H:485', 'SER'], ['1', 'D:58', 'GLU'], ['1', 'D:59', 'ASP'], ['1', 'D:63', 'LYS'], ['1', 'D:88', 'LEU'], ['1', 'D:92', 'LEU'], ['1', 'D:93', 'PHE'], ['1', 'D:104', 'SER'], ['1', 'D:133', 'ASP'], ['1', 'D:137', 'ARG'], ['1', 'D:155', 'LEU'], ['1', 'D:158', 'ASN'], ['1', 'D:170', 'GLU'], ['1', 'D:185', 'SER'], ['1', 'D:190', 'ARG'], ['1', 'D:197', 'TYR'], ['1', 'D:200', 'GLN'], ['1', 'D:203', 'GLN'], ['1', 'D:204', 'LEU'], ['1', 'Y:231', 'ASP'], ['1', 'Y:232', 'LEU'], ['1', 'Y:239', 'SER'], ['1', 'K:58', 'SER'], ['1', 'K:67', 'SER'], ['1', 'K:81', 'THR'], ['1', 'E:120', 'GLU'], ['1', 'E:140', 'THR'], ['1', 'E:150', 'LEU'], ['1', 'E:159', 'GLN'], ['1', 'E:164', 'ASP'], ['1', 'E:181', 'LEU'], ['1', 'E:199', 'ARG'], ['1', 'E:210', 'GLN'], ['1', 'E:211', 'LYS'], ['1', 'E:225', 'THR'], ['1', 'E:240', 'GLU'], ['1', 'E:251', 'THR'], ['1', 'E:262', 'SER'], ['1', 'E:274', 'THR'], ['1', 'E:308', 'THR'], ['1', 'E:310', 'THR'], ['1', 'E:346', 'ASP'], ['1', 'E:372', 'VAL'], ['1', 'E:396', 'THR'], ['1', 'E:406', 'SER'], ['1', 'E:418', 'SER'], ['1', 'E:461', 'THR'], ['1', 'E:463', 'ASP'], ['1', 'E:473', 'SER'], ['1', 'F:48', 'THR'], ['1', 'F:59', 'GLN'], ['1', 'F:98', 'GLU'], ['1', 'F:99', 'SER'], ['1', 'F:128', 'THR'], ['1', 'F:175', 'THR'], ['1', 'F:211', 'ASP'], ['1', 'F:221', 'GLN'], ['1', 'F:227', 'SER'], ['1', 'F:245', 'SER'], ['1', 'F:247', 'THR'], ['1', 'F:249', 'THR'], ['1', 'F:283', 'THR'], ['1', 'F:284', 'SER'], ['1', 'F:285', 'THR'], ['1', 'F:292', 'LYS'], ['1', 'F:303', 'THR'], ['1', 'F:326', 'SER'], ['1', 'F:339', 'SER'], ['1', 'F:354', 'GLU'], ['1', 'F:379', 'THR'], ['1', 'F:381', 'SER'], ['1', 'F:397', 'THR'], ['1', 'F:408', 'THR'], ['1', 'G:453', 'SER'], ['1', 'G:457', 'THR'], ['1', 'G:460', 'SER'], ['1', 'G:466', 'THR'], ['1', 'G:479', 'THR'], ['1', 'G:484', 'THR'], ['1', 'J:559', 'GLU'], ['1', 'J:560', 'SER'], ['1', 'J:572', 'SER'], ['1', 'J:580', 'SER'], ['1', 'J:594', 'SER'], ['1', 'J:595', 'THR'], ['1', 'J:603', 'MET'], ['1', 'J:619', 'THR'], ['1', 'J:620', 'LYS']].length > 0) {
+                                    Write_Table(list_to_write = [['Model ID', 'Chain and res ID', 'Residue type'], ['1', 'I:559', 'GLU'], ['1', 'I:560', 'SER'], ['1', 'I:572', 'SER'], ['1', 'I:578', 'SER'], ['1', 'I:580', 'SER'], ['1', 'I:586', 'SER'], ['1', 'I:595', 'THR'], ['1', 'I:606', 'GLU'], ['1', 'I:609', 'SER'], ['1', 'I:610', 'GLU'], ['1', 'I:618', 'SER'], ['1', 'A:55', 'CYS'], ['1', 'A:58', 'GLU'], ['1', 'A:59', 'ASP'], ['1', 'A:63', 'LYS'], ['1', 'A:79', 'GLN'], ['1', 'A:90', 'ASN'], ['1', 'A:92', 'LEU'], ['1', 'A:103', 'HIS'], ['1', 'A:131', 'SER'], ['1', 'A:185', 'SER'], ['1', 'A:191', 'GLU'], ['1', 'A:203', 'GLN'], ['1', 'A:211', 'ASP'], ['1', 'Z:223', 'LEU'], ['1', 'Z:227', 'LYS'], ['1', 'Z:233', 'VAL'], ['1', 'Z:239', 'SER'], ['1', 'B:108', 'THR'], ['1', 'B:118', 'GLN'], ['1', 'B:140', 'THR'], ['1', 'B:150', 'LEU'], ['1', 'B:152', 'LYS'], ['1', 'B:159', 'GLN'], ['1', 'B:164', 'ASP'], ['1', 'B:165', 'ASN'], ['1', 'B:170', 'ASN'], ['1', 'B:173', 'SER'], ['1', 'B:174', 'SER'], ['1', 'B:176', 'LEU'], ['1', 'B:179', 'HIS'], ['1', 'B:186', 'THR'], ['1', 'B:193', 'THR'], ['1', 'B:211', 'LYS'], ['1', 'B:212', 'LEU'], ['1', 'B:240', 'GLU'], ['1', 'B:243', 'GLU'], ['1', 'B:250', 'GLU'], ['1', 'B:251', 'THR'], ['1', 'B:261', 'SER'], ['1', 'B:262', 'SER'], ['1', 'B:300', 'LYS'], ['1', 'B:310', 'THR'], ['1', 'B:332', 'LEU'], ['1', 'B:346', 'ASP'], ['1', 'B:378', 'THR'], ['1', 'B:406', 'SER'], ['1', 'B:417', 'THR'], ['1', 'B:422', 'LYS'], ['1', 'B:423', 'GLN'], ['1', 'B:453', 'THR'], ['1', 'B:458', 'LYS'], ['1', 'B:461', 'THR'], ['1', 'B:463', 'ASP'], ['1', 'B:473', 'SER'], ['1', 'B:484', 'ILE'], ['1', 'B:487', 'PHE'], ['1', 'C:48', 'THR'], ['1', 'C:57', 'THR'], ['1', 'C:67', 'GLN'], ['1', 'C:99', 'SER'], ['1', 'C:119', 'ILE'], ['1', 'C:128', 'THR'], ['1', 'C:163', 'GLU'], ['1', 'C:168', 'THR'], ['1', 'C:178', 'ASP'], ['1', 'C:209', 'GLU'], ['1', 'C:211', 'ASP'], ['1', 'C:213', 'SER'], ['1', 'C:221', 'GLN'], ['1', 'C:224', 'LEU'], ['1', 'C:227', 'SER'], ['1', 'C:247', 'THR'], ['1', 'C:249', 'THR'], ['1', 'C:280', 'ASN'], ['1', 'C:282', 'ARG'], ['1', 'C:296', 'GLU'], ['1', 'C:323', 'ASP'], ['1', 'C:326', 'SER'], ['1', 'C:340', 'THR'], ['1', 'C:343', 'ASN'], ['1', 'C:349', 'GLU'], ['1', 'C:358', 'SER'], ['1', 'C:385', 'THR'], ['1', 'C:390', 'ASP'], ['1', 'C:397', 'THR'], ['1', 'C:416', 'ASN'], ['1', 'C:419', 'THR'], ['1', 'H:432', 'LYS'], ['1', 'H:444', 'THR'], ['1', 'H:453', 'SER'], ['1', 'H:456', 'THR'], ['1', 'H:464', 'THR'], ['1', 'H:485', 'SER'], ['1', 'D:58', 'GLU'], ['1', 'D:59', 'ASP'], ['1', 'D:63', 'LYS'], ['1', 'D:88', 'LEU'], ['1', 'D:92', 'LEU'], ['1', 'D:93', 'PHE'], ['1', 'D:104', 'SER'], ['1', 'D:133', 'ASP'], ['1', 'D:137', 'ARG'], ['1', 'D:155', 'LEU'], ['1', 'D:158', 'ASN'], ['1', 'D:170', 'GLU'], ['1', 'D:185', 'SER'], ['1', 'D:190', 'ARG'], ['1', 'D:197', 'TYR'], ['1', 'D:200', 'GLN'], ['1', 'D:203', 'GLN'], ['1', 'D:204', 'LEU'], ['1', 'Y:231', 'ASP'], ['1', 'Y:232', 'LEU'], ['1', 'Y:239', 'SER'], ['1', 'K:58', 'SER'], ['1', 'K:67', 'SER'], ['1', 'K:81', 'THR'], ['1', 'E:120', 'GLU'], ['1', 'E:140', 'THR'], ['1', 'E:150', 'LEU'], ['1', 'E:159', 'GLN'], ['1', 'E:164', 'ASP'], ['1', 'E:181', 'LEU'], ['1', 'E:199', 'ARG'], ['1', 'E:210', 'GLN'], ['1', 'E:211', 'LYS'], ['1', 'E:225', 'THR'], ['1', 'E:240', 'GLU'], ['1', 'E:251', 'THR'], ['1', 'E:262', 'SER'], ['1', 'E:274', 'THR'], ['1', 'E:308', 'THR'], ['1', 'E:310', 'THR'], ['1', 'E:346', 'ASP'], ['1', 'E:372', 'VAL'], ['1', 'E:396', 'THR'], ['1', 'E:406', 'SER'], ['1', 'E:418', 'SER'], ['1', 'E:461', 'THR'], ['1', 'E:463', 'ASP'], ['1', 'E:473', 'SER'], ['1', 'F:48', 'THR'], ['1', 'F:59', 'GLN'], ['1', 'F:98', 'GLU'], ['1', 'F:99', 'SER'], ['1', 'F:128', 'THR'], ['1', 'F:175', 'THR'], ['1', 'F:211', 'ASP'], ['1', 'F:221', 'GLN'], ['1', 'F:227', 'SER'], ['1', 'F:245', 'SER'], ['1', 'F:247', 'THR'], ['1', 'F:249', 'THR'], ['1', 'F:283', 'THR'], ['1', 'F:284', 'SER'], ['1', 'F:285', 'THR'], ['1', 'F:292', 'LYS'], ['1', 'F:303', 'THR'], ['1', 'F:326', 'SER'], ['1', 'F:339', 'SER'], ['1', 'F:354', 'GLU'], ['1', 'F:379', 'THR'], ['1', 'F:381', 'SER'], ['1', 'F:397', 'THR'], ['1', 'F:408', 'THR'], ['1', 'G:453', 'SER'], ['1', 'G:457', 'THR'], ['1', 'G:460', 'SER'], ['1', 'G:466', 'THR'], ['1', 'G:479', 'THR'], ['1', 'G:484', 'THR'], ['1', 'J:559', 'GLU'], ['1', 'J:560', 'SER'], ['1', 'J:572', 'SER'], ['1', 'J:580', 'SER'], ['1', 'J:594', 'SER'], ['1', 'J:595', 'THR'], ['1', 'J:603', 'MET'], ['1', 'J:619', 'THR'], ['1', 'J:620', 'LYS']])
+                                    document.write(space);
+                                }
+
+
+                            }
+                            </script>
+                        </div>
+                    </div>
+                    <!-- end col -->
+                </div>
+            </div>
+            <!-- end card body-->
+            <!-- start overall card body for front page -->
+
+        <footer class="page-footer">
+            <div class="container-fluid">
+                <div class="row" style="/color:#FFF; background-color: rgba(102,153,102, 0.5); padding-top: 10px; padding-bottom: 2px;">
+                    <div class="col-sm-6" style="padding-top: 10px; padding-bottom: 10px;">
+                        <a href="http://www.wwpdb.org/" target="_blank">
+                            <img src="../../static/webimages/wwpdb-logo11.png" alt="wwpdb" height="35px" width="160px" /></a>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="float-right text-right">
+                            <p style="margin-bottom: 0px; margin-right: 0px;color: #000">Supported by<br />National Science Foundation</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" style="color:#FFF; background-color: #669966; padding-top: 3px; padding-bottom: 8px;">
+                </div>
+            </div>
+    </div>
+    </footer>
+
+    <!-- add Javasscript file from js file -->
+        
+
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/jquery-3.3.1.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/popper1.12.9.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap4.1.3.min.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap3-typeahead.min.js') }}"></script>
+        
+
+    </div>
+</body>
+
+</html>
